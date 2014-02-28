@@ -59,6 +59,7 @@ public class Majn {
 			try{
 				robot.algorytmWersja1(plansza);
 			} catch(Exception e) {
+				/*
 				nieudane++;
 				System.out.println("UPS, nie udalo sie ... juz " + nieudane + " raz(-y)");
 				try{
@@ -69,6 +70,14 @@ public class Majn {
 					System.out.println("das Auto");
 				}
 				reset(plansza,robot);
+				*/
+				for(int i=0; i<5;i++){
+					for(int j=0; j<5;j++){
+						plansza[i][j].getSciezki().clear();
+					}
+				}
+				robot.getPoprzedniePola().clear();
+				
 			}
 			robot.pokazPozycje();
 			Thread.sleep(50);
