@@ -1,16 +1,16 @@
 package pl.inf.ug.edu.robomaniacs;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 
 public class Majn {
 
 	public static void main(String args[]) throws InterruptedException {
-		System.out
-				.println("*************************************************************");
+		System.out.println("*************************************************************");
 		int rozmX = 5;
 		int rozmY = 5;
 		int udane = 0;
-		int nieudane = 0;
 
 		Pole[][] plansza = new Pole[rozmX][rozmY];
 
@@ -60,8 +60,9 @@ public class Majn {
 				try {
 					robot.algorytmWersja1(plansza); // seksi
 				} catch (Exception e) {
-					//wyczyść pamięć i zacznij od nowa!
-					//to jest jak reset, tylko bez restartowania pozycji zeby nie bylo ze czit
+					// wyczyść pamięć i zacznij od nowa!
+					// to jest jak reset, tylko bez restartowania pozycji zeby
+					// nie bylo ze czit
 					for (int i = 0; i < 5; i++) {
 						for (int j = 0; j < 5; j++) {
 							plansza[i][j].getSciezki().clear();
@@ -78,8 +79,9 @@ public class Majn {
 			udane++;
 			System.out.println("UDAŁO SIE " + udane + " razy ! ha");
 			try {
-				PrintWriter udaneWriter = new PrintWriter("udane.txt", "UTF-8");
-				udaneWriter.println(udane + ", " + robot.iloscKrokow + " krokow");
+				File log = new File("log.txt");
+				PrintWriter udaneWriter = new PrintWriter(new FileWriter(log,true));
+				udaneWriter.println(udane + ", " + robot.iloscKrokow );
 				udaneWriter.close();
 			} catch (Exception s) {
 				System.out.println("das Auto");
