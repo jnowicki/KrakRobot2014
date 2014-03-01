@@ -5,6 +5,8 @@ import java.util.Random;
 import java.util.Stack;
 
 public class Robot {
+	
+	public int iloscKrokow = 0;
 	// aktualna pozycja robota
 	private Pole poz;
 	// poprzednie pole na ktorym byl robot w ruchu
@@ -64,7 +66,7 @@ public class Robot {
 		}
 	}
 
-	// DEBUG
+	// DEBUG , takie tam drukowanie
 	public void pokazPozycje() {
 		System.out.println("+-----+-----+-----+-----+-----+");
 		for (int j = 0; j < 5; j++) {
@@ -160,6 +162,7 @@ public class Robot {
 			drukujStak();
 			this.pokazPozycje();		
 			Thread.sleep(50);
+			iloscKrokow++;
 		}
 		// --------------- KONCZ
 		
@@ -191,6 +194,7 @@ public class Robot {
 		if (!poprzedniePole.equals("") && czyUdanyRuch)
 			getPoprzedniePola().push(poprzedniePole);
 		drukujStak();
+		iloscKrokow++;
 	}
 
 	public Robot() {
